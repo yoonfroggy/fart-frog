@@ -1,0 +1,128 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #13201d;
+  color: #f6f5df;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(247, 213, 96, 0.18), transparent 28%),
+    linear-gradient(180deg, #203a3f 0%, #172b2a 46%, #111b18 100%);
+}
+
+.game-shell {
+  width: min(100%, 480px);
+  height: calc(100vh - 32px);
+  height: calc(100svh - 32px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 10px;
+  border: 2px solid #5e815f;
+  background: rgba(10, 22, 19, 0.78);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
+}
+
+.hud div {
+  min-width: 0;
+}
+
+.hud-label {
+  display: block;
+  color: #a9d494;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.hud strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 18px;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+canvas {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  justify-self: center;
+  aspect-ratio: 7 / 12;
+  display: block;
+  border: 2px solid #5e815f;
+  background: #95d3d0;
+  image-rendering: pixelated;
+  touch-action: none;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.38);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 64px 1fr 64px 92px;
+  gap: 8px;
+  touch-action: none;
+  user-select: none;
+}
+
+button {
+  min-height: 48px;
+  border: 2px solid #304a33;
+  border-radius: 8px;
+  background: #f0cd54;
+  color: #18251b;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  box-shadow: inset 0 -4px 0 rgba(77, 54, 19, 0.24);
+}
+
+button:active,
+button.is-down {
+  transform: translateY(2px);
+  box-shadow: inset 0 -2px 0 rgba(77, 54, 19, 0.24);
+}
+
+#resetBtn {
+  background: #ef8f62;
+}
+
+@media (max-width: 390px) {
+  body {
+    padding: 8px;
+  }
+
+  .controls {
+    grid-template-columns: 56px 1fr 56px;
+  }
+
+  #resetBtn {
+    grid-column: 1 / -1;
+  }
+
+  .hud strong {
+    font-size: 16px;
+  }
+}
